@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Ionicons, AntDesign } from "react-native-vector-icons";
+import { GOOGLE_API_KEY } from "@env";
 
 export default function SearchBar({ cityHandler }) {
   return (
@@ -10,7 +11,7 @@ export default function SearchBar({ cityHandler }) {
         onPress={(data, details = null) => {
           cityHandler(data.description.split(",")[0]);
         }}
-        query={{ key: "AIzaSyD9r_CDR4UsEDUrzt-n_CWdX30JQYqzjrU" }}
+        query={{ key: GOOGLE_API_KEY }}
         placeholder="Search"
         styles={{
           textInput: {

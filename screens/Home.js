@@ -16,9 +16,9 @@ import RestaurantItem, {
   localRestaurants,
 } from "../components/home/RestaurantItem";
 import { Divider } from "react-native-elements/dist/divider/Divider";
+import { YELP_API_KEY as API_KEY } from "@env";
 
-const YELP_API_KEY =
-  "kJrYl7wXSvOUn1VfdkEgpc4UAkwSBNpQAT1RE9yZDVNYEFbTkNQJdR3hTQJIZXl8pLPW5cCeDfefGqqzCb_5VHKOFizlKkeF3D8ZHauKssPucElfjHMkMRbm1VmmYXYx";
+const YELP_API_KEY = API_KEY;
 export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
   const [city, setCity] = useState("San Francisco");
@@ -46,6 +46,7 @@ export default function Home({ navigation }) {
 
   useEffect(() => {
     getRestaurantsFromYelp();
+    console.log("Restaurant data", restaurantData);
   }, [city, activeTab]);
   return (
     <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
